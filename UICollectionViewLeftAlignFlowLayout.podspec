@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'UICollectionViewLeftAlignFlowLayout'
-  s.version          = 'v0.1.2'
+  s.version          = '0.1.2'
   s.summary          = 'UICollectionViewLeftAlignFlowLayout is left align Flowlayout for CollectionView.'
 
 # This description is used to generate tags and improve search results.
