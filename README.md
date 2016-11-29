@@ -22,7 +22,7 @@ pod "UICollectionViewLeftAlignFlowLayout"
 
 ## Author
 
-2570583222, 2570583222@qq.com
+yanyanforest, yanyanforest@163.com
 
 ## License
 
