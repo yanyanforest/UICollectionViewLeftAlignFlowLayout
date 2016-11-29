@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'UICollectionViewLeftAlignFlowLayout'
-  s.version          = '0.1.0'
+  s.version          = '0.1.2'
   s.summary          = 'UICollectionViewLeftAlignFlowLayout is left align Flowlayout for CollectionView.'
 
 # This description is used to generate tags and improve search results.
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'yanyanforest' => 'yanyanforest@163.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/UICollectionViewLeftAlignFlowLayout.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/yanyanforest/UICollectionViewLeftAlignFlowLayout.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '7.0'
