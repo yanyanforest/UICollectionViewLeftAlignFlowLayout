@@ -6,15 +6,15 @@
 //  Copyright (c) 2016 2570583222. All rights reserved.
 //
 
-#import "UIViewController.h"
+#import "ViewController.h"
 #import <UICollectionViewLeftAlignFlowLayout/UICollectionViewLeftAlignFlowLayout.h>
-@interface UIViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate>
+@interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate>
 @property(nonatomic,strong)UICollectionViewLeftAlignFlowLayout *flowout;
 @property(nonatomic,strong)UICollectionView *specCollectionView;
 
 @end
 
-@implementation UIViewController
+@implementation ViewController
 
 - (void)viewDidLoad
 {
@@ -23,7 +23,7 @@
     self.flowout = [[UICollectionViewLeftAlignFlowLayout alloc]init];
     self.flowout.minimumLineSpacing = 5;
     self.flowout.minimumInteritemSpacing = 10;
-    self.specCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.headerView.frame), CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - CGRectGetMaxY(self.headerView.frame) - 49) collectionViewLayout:self.flowout];
+    self.specCollectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:self.flowout];
     self.specCollectionView.backgroundColor = [UIColor whiteColor];
     self.specCollectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin;
     self.specCollectionView.scrollEnabled = YES;
@@ -37,29 +37,39 @@
 #pragma mark - UICollectionView  Delegate -
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 1;
+    return 10;
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 10;
+    
+    return 2;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"numcell" forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor redColor];
+    for (UIView *v in cell.subviews) {
+        if ([v isMemberOfClass:[UILabel class]]) {
+            [v removeFromSuperview];
+        }
+    }
+    UILabel *label = [[UILabel alloc]initWithFrame:cell.bounds];
+    [cell addSubview:label];
+    label.text = [NSString stringWithFormat:@"%ld第%ld个",(long)indexPath.section,(long)indexPath.row];
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout -
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-        return CGSizeMake(collectionView.frame.size.width / 4, 50);
-   
+        return CGSizeMake(collectionView.frame.size.width / 4.0, 50);
+}
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
@@ -67,7 +77,7 @@
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-        return CGSizeZero;
+        return CGSizeMake(collectionView.frame.size.width , 30);
 }
 
 - (void)didReceiveMemoryWarning
