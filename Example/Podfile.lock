@@ -1,0 +1,23 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - UICollectionViewLeftAlignFlowLayout (0.1.2)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - UICollectionViewLeftAlignFlowLayout (from `../`)
+
+EXTERNAL SOURCES:
+  UICollectionViewLeftAlignFlowLayout:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  UICollectionViewLeftAlignFlowLayout: 6a765abbbd166bc1b59c35b3088034d654c76bab
+
+PODFILE CHECKSUM: 66ff5757390cf9f978d0624c1e49348ab9262302
+
+COCOAPODS: 1.0.0

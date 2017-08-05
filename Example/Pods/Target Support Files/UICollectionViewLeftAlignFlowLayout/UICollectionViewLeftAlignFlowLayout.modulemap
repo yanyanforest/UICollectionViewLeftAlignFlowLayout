@@ -1,0 +1,6 @@
+framework module UICollectionViewLeftAlignFlowLayout {
+  umbrella header "UICollectionViewLeftAlignFlowLayout-umbrella.h"
+
+  export *
+  module * { export * }
+}
